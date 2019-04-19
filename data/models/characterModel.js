@@ -3,7 +3,8 @@ const db = require('../../dbConfig')
 module.exports = {
   getAll,
   findCharacter,
-  insert
+  insert,
+  deleteCharacters
 }
 
 function getAll() {
@@ -18,4 +19,7 @@ function insert(body) {
   return db('characters')
     .insert(body)
     .then(ids => ids[0])
+}
+function deleteCharacters() {
+  return db('characters').truncate()
 }

@@ -40,5 +40,19 @@ describe('server.js', () => {
       expect(characters.length).toBe(1)
       expect(characters[0].name).toBe('Joker')
     })
+    it('should delete a character from the db', async () => {
+      await Characters.insert({ name: 'Joker', series: 'Persona' })
+
+      const characters = await db('characters')
+      const id = characters[0].id
+
+      expect(characters.length).toBe(1)
+      expect(characters[0].name).toBe('Joker')
+
+      await Characters.deleteCharacters()
+
+      const character = await db('characters')
+      expect(character.length).toBe(0)
+    })
   })
 })
