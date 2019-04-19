@@ -28,6 +28,8 @@ describe('server.js', () => {
       expect(response.type).toEqual('application/json')
     })
   })
+
+  //characters
   describe('characters tests', () => {
     beforeEach(() => {
       return db('characters').truncate()
