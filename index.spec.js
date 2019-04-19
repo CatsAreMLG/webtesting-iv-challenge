@@ -11,7 +11,7 @@ describe('server.js', () => {
       expect(process.env.PORT_ENV).toEqual('9090')
     })
     it('test env db config', async () => {
-      expect(process.env.DB_ENV).toEqual('development')
+      expect(process.env.DB_ENV).toEqual('testing')
     })
     it('should return an OK status code from the index route', async () => {
       const expectedStatusCode = 200
