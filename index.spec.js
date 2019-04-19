@@ -1,7 +1,15 @@
-const request = require('supertest') // calling it "request" is a common practice
-const server = require('./index.js') // this is our first red, file doesn't exist yet
+const request = require('supertest')
+const server = require('./index.js')
+require('dotenv').config()
+
 describe('server.js', () => {
   describe('index route', () => {
+    it('test env port', async () => {
+      expect(process.env.PORT_ENV).toEqual('9090')
+    })
+    it('test env db config', async () => {
+      expect(process.env.DB_ENV).toEqual('testing')
+    })
     it('should return an OK status code from the index route', async () => {
       const expectedStatusCode = 200
       const response = await request(server).get('/')

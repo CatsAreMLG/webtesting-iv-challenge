@@ -2,7 +2,7 @@ const express = require('express')
 const helmet = require('helmet')
 const server = express()
 
-const PORT = process.env.ENV_PORT || 9090
+const PORT = process.env.PORT_ENV || 5000
 
 server.use(helmet())
 server.use(express.json())
