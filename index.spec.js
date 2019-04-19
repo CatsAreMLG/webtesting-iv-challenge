@@ -44,7 +44,6 @@ describe('server.js', () => {
       await Characters.insert({ name: 'Joker', series: 'Persona' })
 
       const characters = await db('characters')
-      const id = characters[0].id
 
       expect(characters.length).toBe(1)
       expect(characters[0].name).toBe('Joker')
